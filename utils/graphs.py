@@ -1,3 +1,5 @@
+import graphviz as gv
+
 def show(G, directed=False, weighted=False, path=[], layout="sfdp"):
   graph = gv.Digraph("felicidad") if directed else gv.Graph("alegria")
   graph.graph_attr["layout"] = layout
