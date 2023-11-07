@@ -99,5 +99,5 @@ data =timeit(dpbu2fibo, args, m)
 plt.subplot(1, 5, 5)
 plt.plot(args, data)
 
-plt.show()
+plt.savefig('fibo.png')
 
