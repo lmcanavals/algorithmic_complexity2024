@@ -2,6 +2,7 @@ import graphviz as gv
 
 def show(G, directed=False, weighted=False, path=[], layout="sfdp"):
   graph = gv.Digraph("felicidad") if directed else gv.Graph("alegria")
+  graph.format = 'svg'
   graph.graph_attr["layout"] = layout
   graph.edge_attr["color"] = "gray"
   graph.node_attr["color"] = "orangered"
@@ -17,6 +18,7 @@ def show(G, directed=False, weighted=False, path=[], layout="sfdp"):
   for v, u in enumerate(path):
     if u != -1:
       if weighted:
+        w = 0
         for vi, w in G[u]:
           if vi == v:
             break
@@ -27,6 +29,7 @@ def show(G, directed=False, weighted=False, path=[], layout="sfdp"):
       added.add(f"{v},{u}")
   for u in range(n):
     for edge in G[u]:
+      w = 0
       if weighted:
         v, w = edge
       else:
