@@ -1,11 +1,12 @@
 from utils import graphs
 
+
 def johnson(G):
     n = len(G)
-    G.append([(n-1, 0)])
+    G.append([(n - 1, 0)])
     _, h = graphs.bellmanFord(G, n)
     if not h:
-        return None, None # negative cycle
+        return None, None  # negative cycle
     G.pop()
     G2 = [[] for _ in range(n)]
     for u in range(n):
@@ -21,6 +22,7 @@ def johnson(G):
 
     return paths, costs
 
+
 def solve():
     f = open('2.graph')
     labels = f.readline().split()
@@ -29,7 +31,7 @@ def solve():
     G = [[] for _ in range(n)]
     for line in f:
         u, v, w = [int(v) if i == 2 else lbl2idx[v]
-            for i, v in enumerate(line.split())]
+                   for i, v in enumerate(line.split())]
         G[u].append((v, w))
 
     paths, costs = johnson(G)
@@ -38,5 +40,6 @@ def solve():
         print(costs)
         graphs.show(G, labels=labels, directed=True, weighted=True,
                     path=paths[2]).view()
+
 
 solve()
