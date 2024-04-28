@@ -65,7 +65,7 @@ def showG(G, labels=None, path=[], directed=False, weighted=False,
 
     # preparing labels and scaling coords
     n = len(G)
-    labels = labels if labels else map(str, range(n))
+    labels = labels if labels else list(map(str, range(n)))
     coords = scaleCoords(coords, maxsize, stretch) if coords else None
 
     # adding node info: id, label or xlabel and coords. '' if not provided
