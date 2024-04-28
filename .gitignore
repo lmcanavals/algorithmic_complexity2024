@@ -164,3 +164,5 @@ cython_debug/
 *.gv.svg
 *.gv
 
+.virtual_documents/
+
